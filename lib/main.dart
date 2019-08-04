@@ -42,11 +42,15 @@ class _DiceState extends State<Dice> {
       child: FlatButton(
         child: Image.asset("images/dice$dice_number.png"),
         onPressed: () {
-          setState(() {
-            dice_number = Random().nextInt(6) + 1;
-          });
+          updateDiceState();
         },
       ),
     );
+  }
+
+  void updateDiceState() {
+    setState(() {
+      dice_number = Random().nextInt(6) + 1;
+    });
   }
 }
