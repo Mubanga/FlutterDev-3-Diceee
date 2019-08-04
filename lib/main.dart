@@ -17,52 +17,12 @@ void main() {
   );
 }
 
-//class DicePage extends StatelessWidget {
-//  @override
-//  Widget build(BuildContext context) {
-//    return Center(
-//      child: Row(
-//        children: <Widget>[Dice("images/dice1.png"), Dice("images/dice1.png")],
-//      ),
-//    );
-//  }
-//}
-
-class DicePage extends StatefulWidget {
-  @override
-  _DicePageState createState() => _DicePageState();
-}
-
-class _DicePageState extends State<DicePage> {
-  int LeftDiceNumber = 1;
-  int RightDiceNumber = 1;
-
+class DicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Row(
-        children: <Widget>[
-          Dice(), Dice()
-//          Expanded(
-//            child: FlatButton(
-//                onPressed: () {
-//                  setState(() {
-//                    LeftDiceNumber = Random().nextInt(6) + 1;
-//                  });
-//                },
-//                child: Image.asset("images/dice$LeftDiceNumber.png")),
-//          ),
-//          Expanded(
-//            child: FlatButton(
-//                onPressed: () {
-//                  setState(() {
-//                    RightDiceNumber = Random().nextInt(6) + 1;
-//                  });
-//                },
-//                child: Image.asset("images/dice$RightDiceNumber.png")),
-//          ),
-          //  Dice("images/dice1.png")
-        ],
+        children: <Widget>[Dice(), Dice()],
       ),
     );
   }
@@ -90,14 +50,3 @@ class _DiceState extends State<Dice> {
     );
   }
 }
-
-//class Dice extends StatelessWidget {
-//  final String _assetImagePath;
-//
-//  Dice(this._assetImagePath);
-//
-//  @override
-//  Widget build(BuildContext context) {
-//    return Expanded(child: Image.asset(_assetImagePath));
-//  }
-//}
