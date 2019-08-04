@@ -42,24 +42,25 @@ class _DicePageState extends State<DicePage> {
     return Center(
       child: Row(
         children: <Widget>[
-          Expanded(
-            child: FlatButton(
-                onPressed: () {
-                  setState(() {
-                    LeftDiceNumber = Random().nextInt(6) + 1;
-                  });
-                },
-                child: Image.asset("images/dice$LeftDiceNumber.png")),
-          ),
-          Expanded(
-            child: FlatButton(
-                onPressed: () {
-                  setState(() {
-                    RightDiceNumber = Random().nextInt(6) + 1;
-                  });
-                },
-                child: Image.asset("images/dice$RightDiceNumber.png")),
-          ),
+          Dice(), Dice()
+//          Expanded(
+//            child: FlatButton(
+//                onPressed: () {
+//                  setState(() {
+//                    LeftDiceNumber = Random().nextInt(6) + 1;
+//                  });
+//                },
+//                child: Image.asset("images/dice$LeftDiceNumber.png")),
+//          ),
+//          Expanded(
+//            child: FlatButton(
+//                onPressed: () {
+//                  setState(() {
+//                    RightDiceNumber = Random().nextInt(6) + 1;
+//                  });
+//                },
+//                child: Image.asset("images/dice$RightDiceNumber.png")),
+//          ),
           //  Dice("images/dice1.png")
         ],
       ),
@@ -73,9 +74,20 @@ class Dice extends StatefulWidget {
 }
 
 class _DiceState extends State<Dice> {
+  int dice_number = 1;
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Expanded(
+      child: FlatButton(
+        child: Image.asset("images/dice$dice_number.png"),
+        onPressed: () {
+          setState(() {
+            dice_number = Random().nextInt(6) + 1;
+          });
+        },
+      ),
+    );
   }
 }
 
