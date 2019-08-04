@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   return runApp(
@@ -16,34 +17,63 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+//class DicePage extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Center(
+//      child: Row(
+//        children: <Widget>[Dice("images/dice1.png"), Dice("images/dice1.png")],
+//      ),
+//    );
+//  }
+//}
+
+class DicePage extends StatefulWidget {
+  @override
+  _DicePageState createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int LeftDiceNumber = 1;
+  int RightDiceNumber = 1;
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Row(
         children: <Widget>[
-          Dice("images/dice1.png", "LEFT"),
-          Dice("images/dice1.png", "RIGHT")
+          Expanded(
+            child: FlatButton(
+                onPressed: () {
+                  setState(() {
+                    LeftDiceNumber = Random().nextInt(6) + 1;
+                  });
+                },
+                child: Image.asset("images/dice$LeftDiceNumber.png")),
+          ),
+          Expanded(
+            child: FlatButton(
+                onPressed: () {
+                  setState(() {
+                    RightDiceNumber = Random().nextInt(6) + 1;
+                  });
+                },
+                child: Image.asset("images/dice$RightDiceNumber.png")),
+          ),
+          //  Dice("images/dice1.png")
         ],
       ),
     );
   }
 }
 
-class Dice extends StatelessWidget {
-  final String _assetImagePath;
-  final String _dice_position;
-
-  Dice(this._assetImagePath, this._dice_position);
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-        child: FlatButton(
-      child: Image.asset(_assetImagePath),
-      onPressed: () {
-        print("$_dice_position Dice Has Been Pressed");
-      },
-    ));
-  }
-}
+//class Dice extends StatelessWidget {
+//  final String _assetImagePath;
+//
+//  Dice(this._assetImagePath);
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Expanded(child: Image.asset(_assetImagePath));
+//  }
+//}
