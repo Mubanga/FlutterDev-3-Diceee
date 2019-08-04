@@ -28,7 +28,6 @@ void main() {
 //  }
 //}
 
-
 class DicePage extends StatefulWidget {
   @override
   _DicePageState createState() => _DicePageState();
@@ -65,6 +64,18 @@ class _DicePageState extends State<DicePage> {
         ],
       ),
     );
+  }
+}
+
+class Dice extends StatefulWidget {
+  @override
+  _DiceState createState() => _DiceState();
+}
+
+class _DiceState extends State<Dice> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
 
